@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ContactModel.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *myString = @"Hola Mundo";
+    /*NSString *myString = @"Hola Mundo";
     NSLog(@"My Log: %@",myString);
     
     NSArray *myArr = @[@"hola",@"como",@"estás"];
@@ -53,11 +54,15 @@
     NSMutableArray *userArr = [[NSMutableArray alloc]init];
     
     for (id obj in usersNameArray){
-        int i = [usersNameArray indexOfObject:obj];
+        int i = (int)[usersNameArray indexOfObject:obj];
         [userArr addObject:[self addUserToArrayWithName:usersNameArray[i] andPhone:usersPhoneArray[i]]];
     }
     
-    NSLog(@"user array: %@",userArr);
+    NSLog(@"user array: %@",userArr);*/
+    
+    ContactModel *contact = [[ContactModel alloc] init];
+    [contact setContactInfoWithName:@"Ranferi" withPhone:@"658769434" andEmail:@"ranferi.dr@gmail.com"];
+    NSLog(@"Contacto :%@",[contact getName]);
 }
 
 - (NSDictionary *)addUserToArrayWithName:(NSString *)name andPhone:(NSString *)phone {
@@ -75,5 +80,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)saveButtonAction{
+    ContactModel *contact = [[ContactModel alloc] init];
+    [contact setContactInfoWithName:self.nameTexField.text withPhone:self.phoneTextField.text andEmail:self.mailTextField.text];
+    NSLog(@"Contacto :%@",[contact getName]);
+}
 
 @end
