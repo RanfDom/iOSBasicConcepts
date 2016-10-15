@@ -60,9 +60,7 @@
     
     NSLog(@"user array: %@",userArr);*/
     
-    ContactModel *contact = [[ContactModel alloc] init];
-    [contact setContactInfoWithName:@"Ranferi" withPhone:@"658769434" andEmail:@"ranferi.dr@gmail.com"];
-    NSLog(@"Contacto :%@",[contact getName]);
+    [self.saveButton addTarget:self action:@selector(saveButtonAction) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (NSDictionary *)addUserToArrayWithName:(NSString *)name andPhone:(NSString *)phone {
@@ -81,9 +79,48 @@
 }
 
 - (void)saveButtonAction{
-    ContactModel *contact = [[ContactModel alloc] init];
-    [contact setContactInfoWithName:self.nameTexField.text withPhone:self.phoneTextField.text andEmail:self.mailTextField.text];
-    NSLog(@"Contacto :%@",[contact getName]);
+    
+    if ([self hasValidInfo]){
+        ContactModel *contact = [[ContactModel alloc] init];
+        [contact setContactInfoWithName:self.nameTexField.text withPhone:self.phoneTextField.text andEmail:self.mailTextField.text];
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Aviso" message:@"Contacto guardado sactisfactoriamente" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self clearFields];
+        }];
+        
+        [alertController addAction:ok];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Aviso" message:@"Completa todos los campos" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        
+        [alertController addAction:ok];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+
+- (void)clearFields {
+    NSLog(@"is gonna clear");
+    self.nameTexField.text = nil;
+    self.phoneTextField.text = nil;
+    self.mailTextField.text = nil;
+}
+
+-(BOOL)hasValidInfo {
+    for(id obj in self.view.subviews){
+        if([obj isKindOfClass:[UITextField class]]){
+            UITextField *txtField = (UITextField *)obj;
+            if (txtField.text.length==0){
+                return NO;
+            }
+        }
+    }
+    return YES;
 }
 
 @end
