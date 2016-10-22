@@ -13,6 +13,7 @@
 		E718746E1DA87E6A002CD21C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E718746C1DA87E6A002CD21C /* Main.storyboard */; };
 		E71874701DA87E6A002CD21C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E718746F1DA87E6A002CD21C /* Assets.xcassets */; };
 		E71874731DA87E6A002CD21C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E71874711DA87E6A002CD21C /* LaunchScreen.storyboard */; };
+		E77EF9DC1DBBC703001F9EF1 /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77EF9DB1DBBC703001F9EF1 /* ContactListViewController.m */; };
 		E7FF3DA11DB26D8E005917F2 /* ContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FF3DA01DB26D8E005917F2 /* ContactModel.m */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,8 @@
 		E718746F1DA87E6A002CD21C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E71874721DA87E6A002CD21C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E71874741DA87E6A002CD21C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E77EF9DA1DBBC703001F9EF1 /* ContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListViewController.h; sourceTree = "<group>"; };
+		E77EF9DB1DBBC703001F9EF1 /* ContactListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListViewController.m; sourceTree = "<group>"; };
 		E7FF3D9F1DB26D8E005917F2 /* ContactModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactModel.h; sourceTree = "<group>"; };
 		E7FF3DA01DB26D8E005917F2 /* ContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +64,7 @@
 		E71874621DA87E6A002CD21C /* iOSBasic */ = {
 			isa = PBXGroup;
 			children = (
+				E77EF9D71DBBC62B001F9EF1 /* Controllers */,
 				E7FF3D9B1DB2691B005917F2 /* Models */,
 				E71874661DA87E6A002CD21C /* AppDelegate.h */,
 				E71874671DA87E6A002CD21C /* AppDelegate.m */,
@@ -81,6 +85,23 @@
 				E71874641DA87E6A002CD21C /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E77EF9D71DBBC62B001F9EF1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E77EF9D91DBBC670001F9EF1 /* ContacListViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E77EF9D91DBBC670001F9EF1 /* ContacListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E77EF9DA1DBBC703001F9EF1 /* ContactListViewController.h */,
+				E77EF9DB1DBBC703001F9EF1 /* ContactListViewController.m */,
+			);
+			path = ContacListViewController;
 			sourceTree = "<group>";
 		};
 		E7FF3D9B1DB2691B005917F2 /* Models */ = {
@@ -164,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E77EF9DC1DBBC703001F9EF1 /* ContactListViewController.m in Sources */,
 				E718746B1DA87E6A002CD21C /* ViewController.m in Sources */,
 				E71874681DA87E6A002CD21C /* AppDelegate.m in Sources */,
 				E7FF3DA11DB26D8E005917F2 /* ContactModel.m in Sources */,

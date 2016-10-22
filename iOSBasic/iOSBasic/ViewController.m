@@ -7,9 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "ContactListViewController.h"
 #import "ContactModel.h"
 
-@interface ViewController ()
+@interface ViewController (){
+    NSMutableArray *contactsArray;
+}
 
 @end
 
@@ -60,6 +63,7 @@
     
     NSLog(@"user array: %@",userArr);*/
     
+    contactsArray = [[NSMutableArray alloc]init];
     [self.saveButton addTarget:self action:@selector(saveButtonAction) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -84,10 +88,13 @@
         ContactModel *contact = [[ContactModel alloc] init];
         [contact setContactInfoWithName:self.nameTexField.text withPhone:self.phoneTextField.text andEmail:self.mailTextField.text];
         
+        [contactsArray addObject:contact];
+        
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Aviso" message:@"Contacto guardado sactisfactoriamente" preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self clearFields];
+            //NSLog(@"Contacts Array: %@",[contactsArray[0] getName]);
         }];
         
         [alertController addAction:ok];
@@ -121,6 +128,19 @@
         }
     }
     return YES;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"contactListSegue"])
+    {
+        // Get reference to the destination view controller
+        ContactListViewController *vc = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        [vc setArrayContacts:contactsArray];
+        //[vc performSelector:@selector(setArrayContacts:) withObject:contactsArray];
+    }
 }
 
 @end
