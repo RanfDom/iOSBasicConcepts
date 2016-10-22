@@ -13,5 +13,6 @@
 - (void)setContactInfoWithName:(NSString *)name withPhone:(NSString *)phone andEmail:(NSString *)email;
 
 - (NSString *)getName;
-
+- (NSString *)getPhone;
+- (NSString *)getEmail;
 @end

@@ -25,4 +25,12 @@
 - (NSString *)getName {
     return self.name;
 }
+
+- (NSString *)getPhone {
+    return  self.phone;
+}
+
+- (NSString *)getEmail {
+    return self.email;
+}
 @end

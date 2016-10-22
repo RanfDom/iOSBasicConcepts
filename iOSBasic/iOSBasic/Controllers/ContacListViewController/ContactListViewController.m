@@ -19,6 +19,23 @@
     [super viewDidLoad];
     [_backButton addTarget:self action:@selector(hideView) forControlEvents:UIControlEventTouchUpInside];
     [_tableContacts setDataSource:self];
+    [_tableContacts setDelegate:self];
+    
+    [_detailView setHidden:YES];
+}
+
+#pragma mark - TableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    ContactModel *contact = _contentArray[indexPath.row];
+    _nameDetailLabel.text = [contact getName];
+    _phoneDetailLabel.text = [contact getPhone];
+    _emailDetailLabel.text = [contact getEmail];
+    
+    //[_detailView setHidden:NO];
+    [UIView animateWithDuration:0.5 animations:^{
+        [_detailView setHidden:NO];
+    }];
 }
 
 #pragma mark - TableViewDataSource
@@ -49,10 +66,7 @@
     }
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-}
-
+#pragma mark - PrivateMethods
 - (void)hideView {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

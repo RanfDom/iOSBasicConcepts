@@ -8,8 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContactListViewController : UIViewController<UITableViewDataSource>
+@interface ContactListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableContacts;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+
+@property (weak, nonatomic) IBOutlet UIView *detailView;
+
+@property (weak, nonatomic) IBOutlet UIButton *closeDetalButton;
+@property (weak, nonatomic) IBOutlet UILabel *nameDetailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *phoneDetailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailDetailLabel;
+
+
+
+
 - (void)setArrayContacts:(NSArray *)array;
 @end
