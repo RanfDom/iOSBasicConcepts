@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ContactModel : NSObject
+@interface BeanContact : NSObject
+
 
 - (void)setContactInfoWithName:(NSString *)name withPhone:(NSString *)phone andEmail:(NSString *)email;
 

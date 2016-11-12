@@ -6,15 +6,15 @@
 //  Copyright © 2016 RanfeDom. All rights reserved.
 //
 
-#import "ContactModel.h"
+#import "BeanContact.h"
 
-@interface ContactModel()
+@interface BeanContact()
 @property(nonatomic,strong)NSString *name;
 @property(nonatomic,strong)NSString *phone;
 @property(nonatomic,strong)NSString *email;
 @end
 
-@implementation ContactModel
+@implementation BeanContact
 
 - (void)setContactInfoWithName:(NSString *)name withPhone:(NSString *)phone andEmail:(NSString *)email {
     self.name = name;
