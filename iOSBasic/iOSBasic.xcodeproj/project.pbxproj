@@ -13,11 +13,12 @@
 		E718746E1DA87E6A002CD21C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E718746C1DA87E6A002CD21C /* Main.storyboard */; };
 		E71874701DA87E6A002CD21C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E718746F1DA87E6A002CD21C /* Assets.xcassets */; };
 		E71874731DA87E6A002CD21C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E71874711DA87E6A002CD21C /* LaunchScreen.storyboard */; };
+		E722D7B71DD7B15400F21470 /* ContactStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = E722D7B61DD7B15400F21470 /* ContactStorage.m */; };
+		E77A84201DE010120039E228 /* ContactEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = E77A841F1DE010120039E228 /* ContactEntity.m */; };
 		E77EF9DC1DBBC703001F9EF1 /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77EF9DB1DBBC703001F9EF1 /* ContactListViewController.m */; };
 		E7BF0F201DD78A5500553B05 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BF0F1F1DD78A5500553B05 /* ContactViewController.m */; };
 		E7BF0F231DD7908E00553B05 /* SaveContectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BF0F221DD7908E00553B05 /* SaveContectModel.m */; };
 		E7BF0F271DD7948600553B05 /* SaveContactPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BF0F261DD7948600553B05 /* SaveContactPresenter.m */; };
-		E7FF3DA11DB26D8E005917F2 /* BeanContact.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FF3DA01DB26D8E005917F2 /* BeanContact.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,10 @@
 		E718746F1DA87E6A002CD21C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E71874721DA87E6A002CD21C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E71874741DA87E6A002CD21C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E722D7B51DD7B15400F21470 /* ContactStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactStorage.h; sourceTree = "<group>"; };
+		E722D7B61DD7B15400F21470 /* ContactStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactStorage.m; sourceTree = "<group>"; };
+		E77A841E1DE010120039E228 /* ContactEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactEntity.h; sourceTree = "<group>"; };
+		E77A841F1DE010120039E228 /* ContactEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactEntity.m; sourceTree = "<group>"; };
 		E77EF9DA1DBBC703001F9EF1 /* ContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListViewController.h; sourceTree = "<group>"; };
 		E77EF9DB1DBBC703001F9EF1 /* ContactListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListViewController.m; sourceTree = "<group>"; };
 		E7BF0F1E1DD78A5500553B05 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
@@ -40,8 +45,6 @@
 		E7BF0F251DD7948600553B05 /* SaveContactPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveContactPresenter.h; sourceTree = "<group>"; };
 		E7BF0F261DD7948600553B05 /* SaveContactPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveContactPresenter.m; sourceTree = "<group>"; };
 		E7BF0F2A1DD7A06E00553B05 /* SaveContactViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SaveContactViewProtocol.h; sourceTree = "<group>"; };
-		E7FF3D9F1DB26D8E005917F2 /* BeanContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeanContact.h; sourceTree = "<group>"; };
-		E7FF3DA01DB26D8E005917F2 /* BeanContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeanContact.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 		E71874621DA87E6A002CD21C /* iOSBasic */ = {
 			isa = PBXGroup;
 			children = (
+				E77A841D1DE010120039E228 /* Entities */,
+				E722D7B41DD7B0D500F21470 /* PersistenceLayer */,
 				E7BF0F281DD79E6C00553B05 /* ViewProtocols */,
 				E7BF0F241DD7921400553B05 /* Presenter */,
 				E77EF9D71DBBC62B001F9EF1 /* Controllers */,
@@ -97,6 +102,24 @@
 				E71874641DA87E6A002CD21C /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E722D7B41DD7B0D500F21470 /* PersistenceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				E722D7B51DD7B15400F21470 /* ContactStorage.h */,
+				E722D7B61DD7B15400F21470 /* ContactStorage.m */,
+			);
+			path = PersistenceLayer;
+			sourceTree = "<group>";
+		};
+		E77A841D1DE010120039E228 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E77A841E1DE010120039E228 /* ContactEntity.h */,
+				E77A841F1DE010120039E228 /* ContactEntity.m */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		E77EF9D71DBBC62B001F9EF1 /* Controllers */ = {
@@ -146,8 +169,6 @@
 		E7FF3D9B1DB2691B005917F2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E7FF3D9F1DB26D8E005917F2 /* BeanContact.h */,
-				E7FF3DA01DB26D8E005917F2 /* BeanContact.m */,
 				E7BF0F211DD7908E00553B05 /* SaveContectModel.h */,
 				E7BF0F221DD7908E00553B05 /* SaveContectModel.m */,
 			);
@@ -228,11 +249,12 @@
 			files = (
 				E77EF9DC1DBBC703001F9EF1 /* ContactListViewController.m in Sources */,
 				E7BF0F201DD78A5500553B05 /* ContactViewController.m in Sources */,
+				E77A84201DE010120039E228 /* ContactEntity.m in Sources */,
 				E718746B1DA87E6A002CD21C /* ViewController.m in Sources */,
 				E71874681DA87E6A002CD21C /* AppDelegate.m in Sources */,
 				E7BF0F271DD7948600553B05 /* SaveContactPresenter.m in Sources */,
 				E7BF0F231DD7908E00553B05 /* SaveContectModel.m in Sources */,
-				E7FF3DA11DB26D8E005917F2 /* BeanContact.m in Sources */,
+				E722D7B71DD7B15400F21470 /* ContactStorage.m in Sources */,
 				E71874651DA87E6A002CD21C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -64,7 +64,6 @@
                                     <color key="titleShadowColor" red="1" green="0.9585918366881897" blue="0.10836473769828292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Og-eY-rSA"/>
                                     <action selector="saveContactAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jlw-uV-i7v"/>
                                 </connections>
                             </button>
@@ -77,8 +76,6 @@
                                 </constraints>
                                 <state key="normal" title="Mis Contactos"/>
                                 <connections>
-                                    <action selector="lisrContactsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jUS-x3-C3C"/>
-                                    <action selector="listContactsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z1R-Bg-XQC"/>
                                     <segue destination="dQm-jY-hSM" kind="presentation" identifier="contactListSegue" id="gtb-EG-tHI"/>
                                 </connections>
                             </button>
@@ -137,16 +134,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="contactListButton" destination="ifG-gi-y4P" id="GzQ-T0-yMa"/>
                         <outlet property="mailField" destination="nWG-Np-R7G" id="u5G-fC-UfY"/>
-                        <outlet property="mailTextField" destination="nWG-Np-R7G" id="ims-EZ-9X6"/>
                         <outlet property="nameField" destination="yMB-x9-7l1" id="ve1-64-zhy"/>
-                        <outlet property="nameTexField" destination="yMB-x9-7l1" id="AOn-BA-t6V"/>
                         <outlet property="phoneField" destination="LRj-56-Xfq" id="b85-Jx-gll"/>
-                        <outlet property="phoneTextField" destination="LRj-56-Xfq" id="ALA-cQ-xrN"/>
-                        <outlet property="saveButton" destination="X0X-Sk-j5V" id="vRb-ac-qDW"/>
-                        <outlet property="saveContactButton" destination="X0X-Sk-j5V" id="0Mt-5s-r3l"/>
-                        <outlet property="showContactsButton" destination="ifG-gi-y4P" id="3Ko-i7-9BF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "ContactListViewController.h"
-#import "ContactModel.h"
+//#import "ContactModel.h"
 
 @interface ViewController (){
     NSMutableArray *contactsArray;
@@ -84,31 +84,31 @@
 
 - (void)saveButtonAction{
     
-    if ([self hasValidInfo]){
-        ContactModel *contact = [[ContactModel alloc] init];
-        [contact setContactInfoWithName:self.nameTexField.text withPhone:self.phoneTextField.text andEmail:self.mailTextField.text];
-        
-        [contactsArray addObject:contact];
-        
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Aviso" message:@"Contacto guardado sactisfactoriamente" preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self clearFields];
-            //NSLog(@"Contacts Array: %@",[contactsArray[0] getName]);
-        }];
-        
-        [alertController addAction:ok];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-    } else {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Aviso" message:@"Completa todos los campos" preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        
-        [alertController addAction:ok];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
+//    if ([self hasValidInfo]){
+//        ContactModel *contact = [[ContactModel alloc] init];
+//        [contact setContactInfoWithName:self.nameTexField.text withPhone:self.phoneTextField.text andEmail:self.mailTextField.text];
+//        
+//        [contactsArray addObject:contact];
+//        
+//        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Aviso" message:@"Contacto guardado sactisfactoriamente" preferredStyle:UIAlertControllerStyleAlert];
+//        
+//        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            [self clearFields];
+//            //NSLog(@"Contacts Array: %@",[contactsArray[0] getName]);
+//        }];
+//        
+//        [alertController addAction:ok];
+//        
+//        [self presentViewController:alertController animated:YES completion:nil];
+//    } else {
+//        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Aviso" message:@"Completa todos los campos" preferredStyle:UIAlertControllerStyleAlert];
+//        
+//        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+//        
+//        [alertController addAction:ok];
+//        
+//        [self presentViewController:alertController animated:YES completion:nil];
+//    }
 }
 
 - (void)clearFields {
@@ -135,10 +135,10 @@
     if ([[segue identifier] isEqualToString:@"contactListSegue"])
     {
         // Get reference to the destination view controller
-        ContactListViewController *vc = [segue destinationViewController];
+        //ContactListViewController *vc = [segue destinationViewController];
         
         // Pass any objects to the view controller here, like...
-        [vc setArrayContacts:contactsArray];
+        //[vc setArrayContacts:contactsArray];
         //[vc performSelector:@selector(setArrayContacts:) withObject:contactsArray];
     }
 }

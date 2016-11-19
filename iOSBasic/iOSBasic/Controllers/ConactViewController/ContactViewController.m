@@ -7,7 +7,7 @@
 //
 
 #import "ContactViewController.h"
-#import "BeanContact.h"
+#import "ContactEntity.h"
 
 @interface ContactViewController ()
 @property (nonatomic,strong)SaveContactPresenter *presenter;
@@ -31,7 +31,7 @@
 }
 
 - (IBAction)saveContactAction:(id)sender {
-    BeanContact *contact = [BeanContact new];
+    ContactEntity *contact = [ContactEntity new];
     [contact setContactInfoWithName:self.nameField.text withPhone:self.phoneField.text andEmail:self.mailField.text];
     [self.presenter saveAction:contact];
 }
@@ -39,22 +39,48 @@
 #pragma mark - SaveViewDelegate
 - (void)showSuccesMessage
 {
+    NSLog(@"Contact Added");
     
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Aviso" message:@"Contacto guardado sactisfactoriamente" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    
+    [alertController addAction:ok];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)showInvalidInfoMessage
 {
+    NSLog(@"Invalid Info");
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Aviso" message:@"Complete los campos faltantes" preferredStyle:UIAlertControllerStyleAlert];
     
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    
+    [alertController addAction:ok];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+
 }
 
 - (void)showErrorMessage
 {
+    NSLog(@"Duplicated");
     
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Aviso" message:@"Completa todos los campos" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    
+    [alertController addAction:ok];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)clearView
 {
-    
+    self.nameField.text = @"";
+    self.phoneField.text = @"";
+    self.mailField.text = @"";
 }
 
 @end

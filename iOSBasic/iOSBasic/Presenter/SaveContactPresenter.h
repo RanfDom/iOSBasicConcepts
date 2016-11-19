@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BeanContact.h"
+#import "ContactEntity.h"
 #import "SaveContectModel.h"
 #import "SaveContactViewProtocol.h"
 
-@interface SaveContactPresenter : NSObject
+@interface SaveContactPresenter : NSObject<SaveContactModelProtocol>
 
 @property (nonatomic,strong)id<SaveContactViewProtocolDelegate>viewDelegate;
 
-- (void)setUpWithModel:(SaveContectModel *)model;
-- (void) saveAction:(BeanContact *)contact;
+- (void) setUpWithModel:(SaveContectModel *)model;
+- (void) saveAction:(ContactEntity *)contact;
 
 @end

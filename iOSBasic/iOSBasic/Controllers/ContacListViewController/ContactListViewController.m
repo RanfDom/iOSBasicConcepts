@@ -7,7 +7,7 @@
 //
 
 #import "ContactListViewController.h"
-#import "ContactModel.h"
+//#import "ContactModel.h"
 
 @interface ContactListViewController ()
 @property (nonatomic,strong)NSArray *contentArray;
@@ -27,10 +27,10 @@
 #pragma mark - TableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    ContactModel *contact = _contentArray[indexPath.row];
+    /*ContactModel *contact = _contentArray[indexPath.row];
     _nameDetailLabel.text = [contact getName];
     _phoneDetailLabel.text = [contact getPhone];
-    _emailDetailLabel.text = [contact getEmail];
+    _emailDetailLabel.text = [contact getEmail];*/
     
     //[_detailView setHidden:NO];
     [UIView animateWithDuration:0.5 animations:^{
@@ -51,8 +51,8 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    ContactModel *contact = _contentArray[indexPath.row];
-    cell.textLabel.text = [contact getName];
+    //ContactModel *contact = _contentArray[indexPath.row];
+    //cell.textLabel.text = [contact getName];
     
     return cell;
 }
@@ -61,9 +61,9 @@
 - (void)setArrayContacts:(NSArray *)array{
     _contentArray = [[NSArray alloc] initWithArray:array];
     
-    for (ContactModel *contact in _contentArray){
+    /*for (ContactModel *contact in _contentArray){
         NSLog(@"nombre: %@",[contact getName]);
-    }
+    }*/
 }
 
 #pragma mark - PrivateMethods

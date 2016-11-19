@@ -7,16 +7,17 @@
 //
 
 #import "SaveContectModel.h"
+#import "ContactStorage.h"
 
 @interface SaveContectModel ()
-@property (nonatomic, strong)BeanContact *contact;
+@property (nonatomic, strong)ContactEntity *contact;
 @end
 
 @implementation SaveContectModel
 
 #pragma mark - public
 
-- (void)saveContact:(BeanContact *)contact
+- (void)saveContact:(ContactEntity *)contact
 {
     self.contact = contact;
     
@@ -46,12 +47,12 @@
 
 - (BOOL) isValidContact
 {
-    return YES;
+    return ([self.contact getName] && [self.contact getPhone] && [self.contact getEmail]) ? YES : NO ;
 }
 
 - (BOOL)addContact
 {
-    return YES;
+    return [[ContactStorage sharedInstance]storageContact:self.contact];
 }
 
 @end

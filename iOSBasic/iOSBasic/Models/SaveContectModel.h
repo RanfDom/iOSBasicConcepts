@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BeanContact.h"
+#import "ContactEntity.h"
 
 @protocol SaveContactModelProtocol <NSObject>
 @required
@@ -18,6 +18,6 @@
 
 @interface SaveContectModel : NSObject
 @property (nonatomic, strong)id <SaveContactModelProtocol>delegate;
-- (void) saveContact:(BeanContact *)contact;
+- (void) saveContact:(ContactEntity *)contact;
 
 @end
