@@ -11,7 +11,7 @@
 #import "SaveContectModel.h"
 #import "SaveContactViewProtocol.h"
 
-@interface SaveContactPresenter : NSObject<SaveContactModelProtocol>
+@interface SaveContactPresenter : NSObject
 
 @property (nonatomic,strong)id<SaveContactViewProtocolDelegate>viewDelegate;
 

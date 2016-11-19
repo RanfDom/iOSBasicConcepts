@@ -17,40 +17,32 @@
 
 #pragma mark - public
 
-- (void)saveContact:(ContactEntity *)contact
+- (void)saveContact:(ContactEntity *)contact completition:(void (^)(int))callback
 {
     self.contact = contact;
     
     if ([self isValidContact]) {
         NSLog(@"valid contact");
-        
-//        if ([self addContact])
-//        {
-//            NSLog(@"added");
-//            [self.delegate saveSucces];
-//        } else {
-//            NSLog(@"duplicated user");
-//            [self.delegate saveErrorDuplicated];
-//        }
-        
-        [self addContact] ?
-        [self.delegate saveSucces] :
-        [self.delegate saveErrorDuplicated];
+        callback ([self addContact] ? 1 : 2);
         
     } else {
         NSLog(@"not valid contact");
-        [self.delegate saveErrorInvalid];
+        callback (0);
     }
+
 }
 
 #pragma mark - private
 
-- (BOOL) isValidContact
+- (BOOL) isValidContact // 0 no valido, 1 valido
 {
-    return ([self.contact getName] && [self.contact getPhone] && [self.contact getEmail]) ? YES : NO ;
+    return (
+            [self.contact getName] &&
+            [self.contact getPhone] &&
+            [self.contact getEmail]) ? YES : NO ;
 }
 
-- (BOOL)addContact
+- (BOOL)addContact // 1 success , 0 Error
 {
     return [[ContactStorage sharedInstance]storageContact:self.contact];
 }

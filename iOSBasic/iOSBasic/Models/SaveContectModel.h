@@ -9,15 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "ContactEntity.h"
 
-@protocol SaveContactModelProtocol <NSObject>
-@required
-- (void)saveSucces;
-- (void)saveErrorInvalid;
-- (void)saveErrorDuplicated;
-@end
-
 @interface SaveContectModel : NSObject
-@property (nonatomic, strong)id <SaveContactModelProtocol>delegate;
-- (void) saveContact:(ContactEntity *)contact;
+
+- (void) saveContact:(ContactEntity *)contact completition: (void (^)(int reponse))callback;
 
 @end

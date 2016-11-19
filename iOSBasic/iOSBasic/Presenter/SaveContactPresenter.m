@@ -17,28 +17,32 @@
 - (void)setUpWithModel:(SaveContectModel *)model
 {
     self.model = model;
-    [self.model setDelegate:self];
 }
 
 - (void)saveAction:(ContactEntity *)contact
 {
-    [self.model saveContact:contact];
-}
 
-#pragma mark - model delegate
-- (void)saveSucces {
-    [self.viewDelegate showSuccesMessage];
-    [self.viewDelegate clearView];
-}
-
-- (void)saveErrorInvalid {
-    [self.viewDelegate showInvalidInfoMessage];
-    [self.viewDelegate clearView];
-}
-
-- (void)saveErrorDuplicated {
-    [self.viewDelegate showErrorMessage];
-    [self.viewDelegate clearView];
+    [self.model saveContact:contact completition:^(int reponse) {
+        switch (reponse) {
+            case 0: { // Invalid
+                [self.viewDelegate showInvalidInfoMessage];
+            }
+                break;
+            case 1: { // Success
+                [self.viewDelegate showSuccesMessage];
+                [self.viewDelegate clearView];
+            }
+                break;
+            case 2: { // Duplicated
+                [self.viewDelegate showErrorMessage];
+                [self.viewDelegate clearView];
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }];
 }
 
 @end
