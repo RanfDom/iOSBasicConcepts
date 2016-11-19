@@ -42,18 +42,40 @@ static dispatch_once_t onceToken = 0;
     }
 }
 
+- (NSArray *)fetchContacts
+{
+    return contactsArray;
+}
+
+- (ContactEntity *)findContactByName:(NSString *)name
+{
+    return [self getInfoFromName:name];
+}
+
 #pragma mark - Private
 - (BOOL) isContactInStorage:(ContactEntity *)contact
 {
     for (ContactEntity *innerContact in contactsArray) {
-        if ([innerContact getName] == [contact getName] &&
-            [innerContact getPhone] == [contact getPhone] &&
-            [innerContact getEmail] == [contact getEmail]
+        if (
+            [[innerContact getName] isEqualToString:[contact getName]] &&
+            [[innerContact getPhone] isEqualToString:[contact getPhone]]  &&
+            [[innerContact getEmail] isEqualToString:[contact getEmail]]
             ) {
             return YES;
         }
     }
     return NO;
+}
+
+- (ContactEntity *) getInfoFromName:(NSString *)name
+{
+    for (ContactEntity *contact in contactsArray) {
+        if ([[contact getName] isEqualToString:name]) {
+            return contact;
+        }
+    }
+    
+    return nil;
 }
 
 @end

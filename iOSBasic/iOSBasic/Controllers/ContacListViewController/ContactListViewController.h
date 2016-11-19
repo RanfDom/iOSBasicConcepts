@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListContactPresenter.h"
 
-@interface ContactListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface ContactListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,ListContactsViewProtocolDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableContacts;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
@@ -20,8 +21,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *phoneDetailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailDetailLabel;
 
+@property (strong, nonatomic) ListContactPresenter *presenter;
 
-
-
-- (void)setArrayContacts:(NSArray *)array;
 @end

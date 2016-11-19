@@ -67,7 +67,7 @@
 {
     NSLog(@"Duplicated");
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Aviso" message:@"Completa todos los campos" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Aviso" message:@"Contacto duplicado" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     

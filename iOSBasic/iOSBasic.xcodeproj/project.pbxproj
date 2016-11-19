@@ -15,6 +15,8 @@
 		E71874731DA87E6A002CD21C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E71874711DA87E6A002CD21C /* LaunchScreen.storyboard */; };
 		E722D7B71DD7B15400F21470 /* ContactStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = E722D7B61DD7B15400F21470 /* ContactStorage.m */; };
 		E77A84201DE010120039E228 /* ContactEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = E77A841F1DE010120039E228 /* ContactEntity.m */; };
+		E77A84261DE0CE7D0039E228 /* ListContactsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E77A84251DE0CE7D0039E228 /* ListContactsModel.m */; };
+		E77A84291DE0D11D0039E228 /* ListContactPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E77A84281DE0D11D0039E228 /* ListContactPresenter.m */; };
 		E77EF9DC1DBBC703001F9EF1 /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77EF9DB1DBBC703001F9EF1 /* ContactListViewController.m */; };
 		E7BF0F201DD78A5500553B05 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BF0F1F1DD78A5500553B05 /* ContactViewController.m */; };
 		E7BF0F231DD7908E00553B05 /* SaveContectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BF0F221DD7908E00553B05 /* SaveContectModel.m */; };
@@ -36,6 +38,11 @@
 		E722D7B61DD7B15400F21470 /* ContactStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactStorage.m; sourceTree = "<group>"; };
 		E77A841E1DE010120039E228 /* ContactEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactEntity.h; sourceTree = "<group>"; };
 		E77A841F1DE010120039E228 /* ContactEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactEntity.m; sourceTree = "<group>"; };
+		E77A84241DE0CE7D0039E228 /* ListContactsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListContactsModel.h; sourceTree = "<group>"; };
+		E77A84251DE0CE7D0039E228 /* ListContactsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListContactsModel.m; sourceTree = "<group>"; };
+		E77A84271DE0D11D0039E228 /* ListContactPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListContactPresenter.h; sourceTree = "<group>"; };
+		E77A84281DE0D11D0039E228 /* ListContactPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListContactPresenter.m; sourceTree = "<group>"; };
+		E77A842A1DE0D3240039E228 /* ListContactsViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListContactsViewProtocol.h; sourceTree = "<group>"; };
 		E77EF9DA1DBBC703001F9EF1 /* ContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListViewController.h; sourceTree = "<group>"; };
 		E77EF9DB1DBBC703001F9EF1 /* ContactListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListViewController.m; sourceTree = "<group>"; };
 		E7BF0F1E1DD78A5500553B05 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
@@ -77,12 +84,12 @@
 		E71874621DA87E6A002CD21C /* iOSBasic */ = {
 			isa = PBXGroup;
 			children = (
-				E77A841D1DE010120039E228 /* Entities */,
 				E722D7B41DD7B0D500F21470 /* PersistenceLayer */,
-				E7BF0F281DD79E6C00553B05 /* ViewProtocols */,
-				E7BF0F241DD7921400553B05 /* Presenter */,
-				E77EF9D71DBBC62B001F9EF1 /* Controllers */,
+				E77A841D1DE010120039E228 /* Entities */,
 				E7FF3D9B1DB2691B005917F2 /* Models */,
+				E7BF0F241DD7921400553B05 /* Presenter */,
+				E7BF0F281DD79E6C00553B05 /* ViewProtocols */,
+				E77EF9D71DBBC62B001F9EF1 /* Controllers */,
 				E71874661DA87E6A002CD21C /* AppDelegate.h */,
 				E71874671DA87E6A002CD21C /* AppDelegate.m */,
 				E71874691DA87E6A002CD21C /* ViewController.h */,
@@ -154,6 +161,8 @@
 			children = (
 				E7BF0F251DD7948600553B05 /* SaveContactPresenter.h */,
 				E7BF0F261DD7948600553B05 /* SaveContactPresenter.m */,
+				E77A84271DE0D11D0039E228 /* ListContactPresenter.h */,
+				E77A84281DE0D11D0039E228 /* ListContactPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -162,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				E7BF0F2A1DD7A06E00553B05 /* SaveContactViewProtocol.h */,
+				E77A842A1DE0D3240039E228 /* ListContactsViewProtocol.h */,
 			);
 			path = ViewProtocols;
 			sourceTree = "<group>";
@@ -171,6 +181,8 @@
 			children = (
 				E7BF0F211DD7908E00553B05 /* SaveContectModel.h */,
 				E7BF0F221DD7908E00553B05 /* SaveContectModel.m */,
+				E77A84241DE0CE7D0039E228 /* ListContactsModel.h */,
+				E77A84251DE0CE7D0039E228 /* ListContactsModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,8 +259,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E77A84291DE0D11D0039E228 /* ListContactPresenter.m in Sources */,
 				E77EF9DC1DBBC703001F9EF1 /* ContactListViewController.m in Sources */,
 				E7BF0F201DD78A5500553B05 /* ContactViewController.m in Sources */,
+				E77A84261DE0CE7D0039E228 /* ListContactsModel.m in Sources */,
 				E77A84201DE010120039E228 /* ContactEntity.m in Sources */,
 				E718746B1DA87E6A002CD21C /* ViewController.m in Sources */,
 				E71874681DA87E6A002CD21C /* AppDelegate.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "ContactListViewController.h"
+#import "ListContactsModel.h"
 //#import "ContactModel.h"
 
 @interface ContactListViewController ()
@@ -17,25 +18,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.presenter =  [[ListContactPresenter alloc]initWith:[ListContactsModel new]];
+    [self.presenter setViewDelegate:self];
+    
     [_backButton addTarget:self action:@selector(hideView) forControlEvents:UIControlEventTouchUpInside];
+    
     [_tableContacts setDataSource:self];
     [_tableContacts setDelegate:self];
     
     [_detailView setHidden:YES];
+    [self.presenter loadData];
 }
 
 #pragma mark - TableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    /*ContactModel *contact = _contentArray[indexPath.row];
-    _nameDetailLabel.text = [contact getName];
-    _phoneDetailLabel.text = [contact getPhone];
-    _emailDetailLabel.text = [contact getEmail];*/
-    
-    //[_detailView setHidden:NO];
-    [UIView animateWithDuration:0.5 animations:^{
-        [_detailView setHidden:NO];
-    }];
+    [self.presenter cellPressedWithInfo:[self.contentArray[indexPath.row] getName]];
 }
 
 #pragma mark - TableViewDataSource
@@ -50,24 +48,32 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    
-    //ContactModel *contact = _contentArray[indexPath.row];
-    //cell.textLabel.text = [contact getName];
-    
-    return cell;
-}
 
-#pragma mark - Segue Methods
-- (void)setArrayContacts:(NSArray *)array{
-    _contentArray = [[NSArray alloc] initWithArray:array];
-    
-    /*for (ContactModel *contact in _contentArray){
-        NSLog(@"nombre: %@",[contact getName]);
-    }*/
+    cell.textLabel.text = [self.contentArray[indexPath.row] getName];
+    return cell;
 }
 
 #pragma mark - PrivateMethods
 - (void)hideView {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - ViewDelegates
+
+- (void)loadViewWith:(NSArray *)data {
+    self.contentArray = data;
+    [self.tableContacts reloadData];
+}
+
+- (void)showContactDeail:(ContactEntity *)contact {
+    
+    self.nameDetailLabel.text = [contact getName];
+    self.phoneDetailLabel.text = [contact getPhone];
+    self.emailDetailLabel.text = [contact getEmail];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        [_detailView setHidden:NO];
+    }];
+}
+
 @end

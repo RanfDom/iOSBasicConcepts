@@ -12,4 +12,6 @@
 @interface ContactStorage : NSObject
 + (instancetype)sharedInstance;
 - (BOOL)storageContact:(ContactEntity *)contact;
+- (NSArray *)fetchContacts;
+- (ContactEntity *)findContactByName:(NSString *)name;
 @end
