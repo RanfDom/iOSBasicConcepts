@@ -8,12 +8,29 @@
 
 #import "ListContactsModel.h"
 #import "ContactStorage.h"
+#import "Constants.h"
 
 @implementation ListContactsModel
 
 - (void)getContactsWithCompletition:(void (^)(NSArray *))callback
 {
-    callback([[ContactStorage sharedInstance]fetchContacts]);
+    NSMutableArray *array = [NSMutableArray arrayWithArray:@[]];
+    
+    for (ContactEntity *contact in [[ContactStorage sharedInstance]fetchContacts]) {
+        
+        NSMutableDictionary *dict = [NSMutableDictionary new];
+        [dict setObject:[contact getName] forKey:@"name"];
+        
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        
+        if ([[userDefault objectForKey:@"showInt"]isEqualToString:@"yes"]){
+            [dict setObject:[contact getPhone] forKey:@"phone"];
+        }
+        
+        [array addObject:dict];
+    }
+    
+    callback(array);
 }
 
 - (void)getContactUserBy:(NSString *)name completition:(void (^)(ContactEntity *))callback

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SaveContactPresenter.h"
 
-@interface ContactViewController : UIViewController<SaveContactViewProtocolDelegate>
+@interface ContactViewController : UIViewController<SaveContactViewProtocolDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
 @property (weak, nonatomic) IBOutlet UITextField *mailField;

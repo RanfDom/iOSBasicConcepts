@@ -49,7 +49,8 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 
-    cell.textLabel.text = [self.contentArray[indexPath.row] getName];
+    cell.textLabel.text = [self.contentArray[indexPath.row] objectForKey:@"name"];
+    cell.detailTextLabel.text = [self.contentArray[indexPath.row] objectForKey:@"phone"];
     return cell;
 }
 
