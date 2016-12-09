@@ -17,26 +17,9 @@
 
 - (IBAction)saveAction:(id)sender {
     
-    BOOL show;
-    NSString *showInt;
-    
-    switch ([self.phoneSegment selectedSegmentIndex]) {
-        case 0: {
-            show = YES;
-            showInt = @"yes";
-        }
-            break;
-        case 1: {
-            show = NO;
-            showInt = @"no";
-        }
-            break;
-        default:
-            break;
-    }
+    BOOL show = ![[NSNumber numberWithInt:(int)[self.phoneSegment selectedSegmentIndex]]boolValue];
     
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setObject:showInt forKey:@"showInt"];
     [userDefault setBool:show forKey:@"show"];
     [userDefault synchronize];
 }

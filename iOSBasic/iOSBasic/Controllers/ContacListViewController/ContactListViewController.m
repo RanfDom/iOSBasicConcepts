@@ -31,9 +31,16 @@
     [self.presenter loadData];
 }
 
+#pragma mark - IBActions
+- (IBAction)closeDetailViewAction:(id)sender {
+    [self.detailView setHidden:YES];
+}
+
+
+
 #pragma mark - TableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.presenter cellPressedWithInfo:[self.contentArray[indexPath.row] getName]];
+    [self.presenter cellPressedWithInfo:[self.contentArray[indexPath.row] objectForKey:@"name"]];
 }
 
 #pragma mark - TableViewDataSource
@@ -72,9 +79,7 @@
     self.phoneDetailLabel.text = [contact getPhone];
     self.emailDetailLabel.text = [contact getEmail];
     
-    [UIView animateWithDuration:0.5 animations:^{
-        [_detailView setHidden:NO];
-    }];
+    [self.detailView setHidden:NO];
 }
 
 @end

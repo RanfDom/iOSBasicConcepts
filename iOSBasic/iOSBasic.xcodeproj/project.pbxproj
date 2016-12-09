@@ -18,6 +18,7 @@
 		E77A84261DE0CE7D0039E228 /* ListContactsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E77A84251DE0CE7D0039E228 /* ListContactsModel.m */; };
 		E77A84291DE0D11D0039E228 /* ListContactPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E77A84281DE0D11D0039E228 /* ListContactPresenter.m */; };
 		E77EF9DC1DBBC703001F9EF1 /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E77EF9DB1DBBC703001F9EF1 /* ContactListViewController.m */; };
+		E7BBC9EC1DFA7E120011AAC7 /* ConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BBC9EB1DFA7E120011AAC7 /* ConfigurationViewController.m */; };
 		E7BF0F201DD78A5500553B05 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BF0F1F1DD78A5500553B05 /* ContactViewController.m */; };
 		E7BF0F231DD7908E00553B05 /* SaveContectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BF0F221DD7908E00553B05 /* SaveContectModel.m */; };
 		E7BF0F271DD7948600553B05 /* SaveContactPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BF0F261DD7948600553B05 /* SaveContactPresenter.m */; };
@@ -45,6 +46,9 @@
 		E77A842A1DE0D3240039E228 /* ListContactsViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListContactsViewProtocol.h; sourceTree = "<group>"; };
 		E77EF9DA1DBBC703001F9EF1 /* ContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListViewController.h; sourceTree = "<group>"; };
 		E77EF9DB1DBBC703001F9EF1 /* ContactListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListViewController.m; sourceTree = "<group>"; };
+		E7BBC9E81DFA7D910011AAC7 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		E7BBC9EA1DFA7E120011AAC7 /* ConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationViewController.h; sourceTree = "<group>"; };
+		E7BBC9EB1DFA7E120011AAC7 /* ConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationViewController.m; sourceTree = "<group>"; };
 		E7BF0F1E1DD78A5500553B05 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
 		E7BF0F1F1DD78A5500553B05 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 		E7BF0F211DD7908E00553B05 /* SaveContectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveContectModel.h; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 		E71874621DA87E6A002CD21C /* iOSBasic */ = {
 			isa = PBXGroup;
 			children = (
+				E7BBC9E71DFA7D910011AAC7 /* Utils */,
 				E722D7B41DD7B0D500F21470 /* PersistenceLayer */,
 				E77A841D1DE010120039E228 /* Entities */,
 				E7FF3D9B1DB2691B005917F2 /* Models */,
@@ -132,6 +137,7 @@
 		E77EF9D71DBBC62B001F9EF1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E7BBC9E91DFA7E120011AAC7 /* ConfigurationViewController */,
 				E7BF0F1D1DD78A2600553B05 /* ConactViewController */,
 				E77EF9D91DBBC670001F9EF1 /* ContacListViewController */,
 			);
@@ -145,6 +151,23 @@
 				E77EF9DB1DBBC703001F9EF1 /* ContactListViewController.m */,
 			);
 			path = ContacListViewController;
+			sourceTree = "<group>";
+		};
+		E7BBC9E71DFA7D910011AAC7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E7BBC9E81DFA7D910011AAC7 /* Constants.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E7BBC9E91DFA7E120011AAC7 /* ConfigurationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E7BBC9EA1DFA7E120011AAC7 /* ConfigurationViewController.h */,
+				E7BBC9EB1DFA7E120011AAC7 /* ConfigurationViewController.m */,
+			);
+			path = ConfigurationViewController;
 			sourceTree = "<group>";
 		};
 		E7BF0F1D1DD78A2600553B05 /* ConactViewController */ = {
@@ -270,6 +293,7 @@
 				E7BF0F231DD7908E00553B05 /* SaveContectModel.m in Sources */,
 				E722D7B71DD7B15400F21470 /* ContactStorage.m in Sources */,
 				E71874651DA87E6A002CD21C /* main.m in Sources */,
+				E7BBC9EC1DFA7E120011AAC7 /* ConfigurationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
