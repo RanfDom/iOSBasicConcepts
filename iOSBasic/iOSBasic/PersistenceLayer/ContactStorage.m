@@ -7,6 +7,7 @@
 //
 
 #import "ContactStorage.h"
+#import <Backendless/Backendless.h>
 
 @implementation ContactStorage {
     NSMutableArray *contactsArray;
@@ -37,13 +38,16 @@ static dispatch_once_t onceToken = 0;
     if ([self isContactInStorage:contact]) {
         return NO;
     } else {
-        [contactsArray addObject:contact];
+        [self saveNewContact:contact];
         return YES;
     }
 }
 
 - (NSArray *)fetchContacts
 {
+    id<IDataStore> dataStore = [backendless.persistenceService of:[ContactEntity class]];
+    BackendlessCollection *collection = [dataStore find:nil];
+    contactsArray = [NSMutableArray arrayWithArray:collection.data];
     return contactsArray;
 }
 
@@ -76,6 +80,31 @@ static dispatch_once_t onceToken = 0;
     }
     
     return nil;
+}
+
+-(void)saveNewContact:(ContactEntity *)contact
+{
+    Responder *responder = [Responder responder:self
+                             selResponseHandler:@selector(responseHandler:)
+                                selErrorHandler:@selector(errorHandler:)];
+ 
+    id<IDataStore> dataStore = [backendless.persistenceService of:[ContactEntity class]];
+    [dataStore save:contact responder:responder];
+}
+
+#pragma mark - responder
+-(id)responseHandler:(id)response
+{
+    ContactEntity *contact = (ContactEntity *)response;
+    [contactsArray addObject:contact];
+    NSLog(@"%@", response);
+    return response;
+}
+
+-(id)errorHandler:(Fault *)fault
+{
+    NSLog(@"%@", fault.detail);
+    return fault;
 }
 
 @end

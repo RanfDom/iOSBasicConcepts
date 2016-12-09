@@ -20,7 +20,7 @@
     BOOL show = ![[NSNumber numberWithInt:(int)[self.phoneSegment selectedSegmentIndex]]boolValue];
     
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setBool:show forKey:@"show"];
+    [userDefault setBool:show forKey:showPhoneKey];
     [userDefault synchronize];
 }
 

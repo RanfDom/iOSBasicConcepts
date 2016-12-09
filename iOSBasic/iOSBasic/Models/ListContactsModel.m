@@ -23,7 +23,7 @@
         
         NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
         
-        if ([[userDefault objectForKey:@"showInt"]isEqualToString:@"yes"]){
+        if ([userDefault boolForKey:showPhoneKey]){
             [dict setObject:[contact getPhone] forKey:@"phone"];
         }
         
